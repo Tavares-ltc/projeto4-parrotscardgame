@@ -27,6 +27,15 @@ html {
     font-weight: 700;
 }
 
+.timer {
+    background-color: #EEF9BF;
+    width: 700px;
+    text-align: end;
+    padding-bottom: 20px;
+    color: red;
+    box-sizing: border-box;
+}
+
 .board {
     width: 60%;
     height: auto;
@@ -101,6 +110,7 @@ html {
     transform: rotateY(180deg);
 
 }
+
 .card.certa {
     transform: rotateY(180deg);
 }

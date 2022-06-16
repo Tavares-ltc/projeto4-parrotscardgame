@@ -1,4 +1,5 @@
 let numeroCartas, primeiraSelecionada, segundaSelecionada
+let rodadas = 0
 
 function nCartas() {
 
@@ -52,6 +53,7 @@ function girar(cardCont) {
         testa();
     }
     function testa() {
+        rodadas += 1
 
         let primeiraV = document.querySelector('.primeira')
         let segundaV = document.querySelector('.segunda')
@@ -70,7 +72,7 @@ function girar(cardCont) {
             }, 1000);
         }
         else {
-            
+
             setTimeout(function () {
                 primeiraV.classList.remove('virada')
                 segundaV.classList.remove('virada')
@@ -78,18 +80,54 @@ function girar(cardCont) {
                 segundaV.classList.remove('segunda')
                 primeiraC = 0
                 segundaC = 0
-            }, 2000);
+            }, 1000);
 
 
         }
     }
 
 }
-function ganhou(){
+function ganhou() {
     let todas = document.querySelectorAll('.card')
     let acertadas = document.querySelectorAll('.card.certa')
-    if (todas.length == acertadas.length){
+    if (todas.length == acertadas.length) {
 
-        alert('Você ganhou!')
+        alert(`Você ganhou em ${rodadas} rodadas e em ${minute} minutos e ${seconds} segundos !`)
+        jogarNovamente()
+        function jogarNovamente() {
+
+            let repetir = prompt('Deseja jogar novamente?')
+            if ((repetir == 'sim') || (repetir === 'Sim')) {
+
+                window.location.reload();
+            }
+            else if ((repetir == 'nao') || (repetir === 'não') || (repetir === 'Não') || (repetir === 'Nao')) {
+
+                alert('Ok, obrigado pela atenção!')
+            }
+            else {
+                alert('Não entendi.')
+                jogarNovamente();
+            }
+        }
     }
 }
+
+let timerVar = setInterval(countTimer, 1000);
+let totalSeconds = 0;
+let minute
+let seconds
+function countTimer() {
+    ++totalSeconds;
+    let hour = Math.floor(totalSeconds / 3600);
+    minute = Math.floor((totalSeconds - hour * 3600) / 60);
+    seconds = totalSeconds - (hour * 3600 + minute * 60);
+    if (hour < 10)
+        hour = "0" + hour;
+    if (minute < 10)
+        minute = "0" + minute;
+    if (seconds < 10)
+        seconds = "0" + seconds;
+    document.querySelector('.timer h2').innerHTML = minute + ":" + seconds;
+}
+countTimer();
