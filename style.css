@@ -13,7 +13,7 @@ html {
 
 .header {
     width: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .header {
@@ -28,10 +28,9 @@ html {
 }
 
 .timer {
-    background-color: #EEF9BF;
-    width: 700px;
+    width: 100%;
+    padding-right: 20px;
     text-align: end;
-    padding-bottom: 20px;
     color: red;
     box-sizing: border-box;
 }
