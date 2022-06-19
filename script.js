@@ -3,7 +3,7 @@ let rodadas = 0
 
 function nCartas() {
 
-    numeroCartas = prompt('Com quantas cartas gostaria de jogar?')
+    numeroCartas = prompt('Com quantas cartas gostaria de jogar? (4 a 14)')
     if ((numeroCartas > 3) && (numeroCartas < 15) && (numeroCartas % 2 == 0)) {
 
         cartas = ['bobrossparrot', 'bobrossparrot', 'explodyparrot', 'explodyparrot', 'fiestaparrot', 'fiestaparrot', 'metalparrot', 'metalparrot', 'revertitparrot', 'revertitparrot', 'tripletsparrot', 'tripletsparrot', 'unicornparrot', 'unicornparrot']
@@ -92,7 +92,12 @@ function ganhou() {
     let acertadas = document.querySelectorAll('.card.certa')
     if (todas.length == acertadas.length) {
 
-        alert(`Você ganhou em ${rodadas} rodadas e em ${minute} minutos e ${seconds} segundos !`)
+        if (minute == '00') {
+            alert(`Você ganhou em ${rodadas} rodadas e em ${seconds} segundos !`)
+        }
+        else {
+            alert(`Você ganhou em ${rodadas} rodadas e em ${minute} minutos e ${seconds} segundos !`)
+        }
         jogarNovamente()
         function jogarNovamente() {
 
@@ -104,6 +109,7 @@ function ganhou() {
             else if ((repetir == 'nao') || (repetir === 'não') || (repetir === 'Não') || (repetir === 'Nao')) {
 
                 alert('Ok, obrigado pela atenção!')
+                clearInterval(timerVar)
             }
             else {
                 alert('Não entendi.')

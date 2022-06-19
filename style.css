@@ -27,12 +27,25 @@ html {
     font-weight: 700;
 }
 
-.timer {
+.timer-container {
+    opacity: 0.8;
     width: 100%;
-    padding-right: 20px;
-    text-align: end;
-    color: red;
+    display: flex;
+    justify-content: end;
     box-sizing: border-box;
+    margin-bottom: 2em;
+}
+
+.timer {
+    padding: 0 5px;
+    border: 2px solid #75B79E;
+    ;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    height: 40px;
+    background-color: #A7E9AF;
+    color: red;
 }
 
 .board {
